@@ -15,5 +15,7 @@ using std::unordered_map;
 using std::sort;
 #include <limits>
 
+#include <string>
+using std::string;
 
 #endif
