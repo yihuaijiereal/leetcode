@@ -1,4 +1,6 @@
 #include "leet.h"
+#include <stack>
+using std::pair;
 
 class Solution
 {
@@ -51,6 +53,30 @@ public:
 
         return water;
     }
+
+    int trap3(std::vector<int> &A){
+        const int n = A.size();
+        std::stack<pair<int,int> > s;
+        int water = 0;
+
+        for(int i = 0;i<n;++i){
+            int height = 0;
+            while(!s.empty()){
+                int bar = s.top().first;
+                int pos = s.top().second;
+                water += (min(bar,A[i])-height)*(i-pos-1);
+                height = bar;
+
+                if(A[i]<bar)
+                    break;
+                else
+                    s.pop();
+            }
+            s.push(std::make_pair(A[i],i));
+        }
+
+        return water;
+    }
 };
 
 int main(){
@@ -59,5 +85,6 @@ int main(){
     Solution solution;
     int result = solution.trap(A);
     int result2 = solution.trap2(A);
-    cout<<result<<" "<<result2<<endl;
+    int result3 = solution.trap3(A);
+    cout<<result<<" "<<result2<<" "<<result3<<endl;
 }
