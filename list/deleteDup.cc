@@ -48,7 +48,3 @@ public:
         return dummy.next;
     }
 };
-
-int main(){
-
-}
