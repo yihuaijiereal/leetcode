@@ -30,7 +30,10 @@ public:
         }
 
         int *next = (int*)malloc(m*sizeof(int));
-
+        getNext(needle,next);
+        for(int k=0;k<m;k++){
+            cout<<next[k]<<endl;
+        }
         for(i=0;i<n;++i){
             while(j>-1&&needle[j+1]!=haystack[i]){
                 j = next[j];
@@ -52,8 +55,7 @@ private:
         int j=-1;
         next[0]=j;
         const int m = needle.size();
-
-        for(int i=0;i<m;++i){
+        for(int i=1;i<m;++i){
             if(j>-1&&needle[j+1]!=needle[i]){
                 j = next[j];
             }
