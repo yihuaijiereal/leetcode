@@ -21,6 +21,10 @@ using std::string;
 #include <sstream>
 using std::stringstream;
 
+#include <stack>
+
+using std::stack;
+
 struct ListNode{
         int val;
         ListNode *next;
